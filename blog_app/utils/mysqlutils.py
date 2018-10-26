@@ -11,7 +11,7 @@ class MysqlUtil:
     __schema = 'blog_app'
     __port = 3306
 
-    def __init__(self, h, u, p, s, pt):
+    def __init__(self, h, u, p, s, pt=3306):
         self.host = h
         self.username = u
         self.password = p
@@ -20,6 +20,7 @@ class MysqlUtil:
 
     def exec(self, sql):
         logger.info('sql is %s', sql)
+        print(sql)
         db = pymysql.connect(self.host, self.username, self.password, self.schema, self.port)
         cursor = db.cursor()
         try:

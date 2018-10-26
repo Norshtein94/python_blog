@@ -3,6 +3,7 @@ import time
 import xmlrunner
 
 # Create your tests here.  method should be start with 'test_'
+from blog_app.service.login_service import LoginService
 from blog_app.utils.cryptoutils import CryptoUtil
 from blog_app.utils.mysqlutils import MysqlUtil
 
@@ -61,13 +62,19 @@ class TestFunctions(unittest.TestCase):
 
     def test_user_select(self):
         client = MysqlUtil('localhost', 'root', 'root', 'blog_app', 3306)
-        select_sql = "select * from emp"
+        select_sql = "select username,password,status from user_info where username = 'admin'"
         res = client.exec(select_sql)
+        print(res)
         for p in res:
             print(p)
             # for col in p:
             #     print(col)
-        self.assertIsNotNone(res)
+        # self.assertIsNotNone(res)
+
+    def test_login_service(self):
+        service = LoginService()
+        res = service.login('admin', 'admin')
+        print(res)
 
 
 if __name__ == '__main__':
