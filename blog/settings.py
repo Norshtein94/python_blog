@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -25,8 +24,7 @@ SECRET_KEY = 'ajdw1yz-ngxirc*gln_pcw23s0k^$q9h96u&r8&gjvk0#5fop6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['47.97.180.239', 'localhost']
 
 # Application definition
 
@@ -48,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -71,15 +70,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {},
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog_app',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    },
+    # 'replica1': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'blog_ext',
+    #     'USER': 'root',
+    #     'PASSWORD': 'root',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # },
 }
 
 # setting logging
@@ -108,7 +119,6 @@ LOGGING = {
     },
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -127,7 +137,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -141,6 +150,19 @@ USE_L10N = True
 
 USE_TZ = True
 
+# LANGUAGES = (
+#     ('en', ('English')),
+#     ('zh-hans', ('中文简体')),
+#     ('zh-hant', ('中文繁體')),
+# )
+
+# LOCALE_PATHS = (
+#     os.path.join(BASE_DIR, 'locale'),
+# )
+
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     "django.core.context_processors.i18n",
+# )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
