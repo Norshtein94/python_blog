@@ -31,12 +31,12 @@ def login(request):
         password = request.POST.get('password')
         logger.debug("username is %s and password is %s", username, password)
         # validate username and password
+        request.session['last_login_time'] = login_service.last_login_time(username)
         result = login_service.login(username, password)
         if result:
             # create session
             request.session['is_login'] = '1'
             request.session['current_username'] = username
-            request.session['last_login_time'] = login_service.last_login_time(username)
             return redirect('home')
         else:
             login_error = 'Username or password is wrong!'
