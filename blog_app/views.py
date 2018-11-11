@@ -13,7 +13,8 @@ logger = logging.getLogger('blog_app.views')
 def home(request):
     if request.session.get('is_login') == '1':
         print(request.session.get('current_username'))
-        return render(request, 'home.html', {'username': request.session.get('current_username')})
+        return render(request, 'home.html', {'username': request.session.get('current_username'),
+                                             'last_login_time': request.session.get('last_login_time')})
     else:
         return render(request, 'login.html')
 
@@ -35,6 +36,7 @@ def login(request):
             # create session
             request.session['is_login'] = '1'
             request.session['current_username'] = username
+            request.session['last_login_time'] = login_service.last_login_time(username)
             return redirect('home')
         else:
             login_error = 'Username or password is wrong!'

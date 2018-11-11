@@ -1,3 +1,6 @@
+create database blog_app;
+use blog_app;
+
 CREATE TABLE `user_info` (
   `username` varchar(20) NOT NULL COMMENT '用户名',
   `password` varchar(64) NOT NULL COMMENT '登录密码',
@@ -16,3 +19,4 @@ CREATE TABLE `user_info` (
   PRIMARY KEY (`username`),
   UNIQUE KEY `user_info_username_uindex` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+

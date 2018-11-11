@@ -24,7 +24,7 @@ SECRET_KEY = 'ajdw1yz-ngxirc*gln_pcw23s0k^$q9h96u&r8&gjvk0#5fop6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['47.97.180.239', 'localhost']
+ALLOWED_HOSTS = ['47.97.180.239', '47.106.237.3', '127.0.0.1', 'localhost']
 
 # Application definition
 

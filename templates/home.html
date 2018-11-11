@@ -15,7 +15,8 @@
   </head>
   <body>
     <div class="container my-5" style="text-align: center">
-        <h2 class="breadcrumb-item active text-center">Welcome to <strong>{{ username }}</strong> Blog!</h2>
+        <h2 class="breadcrumb-item active text-center"><strong>{{ username }}</strong>, welcome back!</h2>
+        <h5 style="color: #aaa">Last login: {{ last_login_time }}</h5>
         <br>
         <img src="{% static 'image/bg.jpg' %}" alt="封面">
     </div>

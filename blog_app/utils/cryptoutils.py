@@ -23,5 +23,5 @@ class CryptoUtil:
 if __name__ == '__main__':
     a = CryptoUtil.md5_encode('admin123')
     print(a)
-    b = CryptoUtil.base64_encode('admin 1 2 3 ')
-    print(b)
+    # b = CryptoUtil.base64_encode('admin 1 2 3 ')
+    # print(b)

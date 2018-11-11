@@ -9,7 +9,7 @@ admin.site.site_title = _('my site title')
 
 # Register your models here.
 
-class UserInfoAmin(admin.ModelAdmin):
+class UserInfoAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', 'is_super', 'status', 'email', 'mobile')
     list_per_page = 10
     ordering = ('-id',)
@@ -24,4 +24,4 @@ class UserInfoAmin(admin.ModelAdmin):
         obj.save()
 
 
-admin.site.register(UserInfo, UserInfoAmin)
+admin.site.register(UserInfo, UserInfoAdmin)
